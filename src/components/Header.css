@@ -1,0 +1,16 @@
+.header {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    background-color: #f1f1f1;
+    padding: 20px 10px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.main-nav {
+    float: right;
+}
