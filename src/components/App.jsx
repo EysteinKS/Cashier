@@ -13,11 +13,11 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="d-flex flex-column">
-          <Header className="sticky-top" />
-          <Route className="p2" path="/" exact component={Home} />
-          <Route className="p2" path="/calculator" component={Calculator} />
-          <Route className="p2" path="/result" component={Result} />
+        <div className="App">
+          <Header className="center" />
+          <Route className="" path="/" exact component={Home} />
+          <Route className="" path="/calculator" component={Calculator} />
+          <Route className="" path="/result" component={Result} />
         </div>
       </BrowserRouter>
     );
