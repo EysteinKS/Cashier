@@ -34,12 +34,6 @@ class CashInput extends Component {
         <span>={this.state.value * this.props.currency}</span>
       </form>
 
-      /* TODO: ADD FORM
-      https://reactjs.org/docs/forms.html
-
-      Props: Currency - Output 
-
-       */
     );
   }
 }
