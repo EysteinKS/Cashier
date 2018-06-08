@@ -3,25 +3,24 @@ import React, { Component } from "react";
 class CashInput extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: "" };
+    this.state = {
+      value: "",
+      result: "0"
+    };
     this.currency = "";
-
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
     this.setState({ value: event.target.value });
-  }
-
-  handleSubmit(event) {
-    alert("A number was submitted: " + this.state.value);
-    event.preventDefault();
+    this.setState((prevState, props) => ({
+      result: prevState.value * props.currency
+    }));
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form>
         <label>
           <span>{this.props.currency}: </span>
           <input
@@ -31,9 +30,8 @@ class CashInput extends Component {
             placeholder="Input Money Here"
           />
         </label>
-        <span>={this.state.value * this.props.currency}</span>
+        <span>={this.state.result}</span>
       </form>
-
     );
   }
 }
