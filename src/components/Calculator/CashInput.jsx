@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./CashInput.css";
 
 class CashInput extends Component {
   constructor(props) {
@@ -18,19 +19,28 @@ class CashInput extends Component {
     }));
   }
 
+  onKeyPress(event){
+    if (event.which === 13){
+      event.preventDefault();
+    }
+    //Prevent action on enter
+  }
+
   render() {
     return (
-      <form>
-        <label>
-          <span>{this.props.currency}: </span>
+      <form onKeyPress={this.onKeyPress}>
+        <label className="grid-container">
+          <span className="grid-item">{this.props.currency}: </span>
           <input
+            className="grid-item"
             type="tel"
             value={this.state.value}
             onChange={this.handleChange}
+            maxLength = "3"
             placeholder="Input Money Here"
           />
+          <span className="grid-item">{this.state.result}</span>
         </label>
-        <span>={this.state.result}</span>
       </form>
     );
   }

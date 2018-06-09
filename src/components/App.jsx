@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter, Route } from "react-router-dom";
-import Button from "@material-ui/core/Button";
 
 //App components
 import Header from "./Header";
@@ -23,5 +22,13 @@ class App extends Component {
     );
   }
 }
+
+/*
+Todo:
+Home
+Result
+*/
+
+/* Check https://medium.freecodecamp.org/where-do-i-belong-a-guide-to-saving-react-component-data-in-state-store-static-and-this-c49b335e2a00 */
 
 export default App;
