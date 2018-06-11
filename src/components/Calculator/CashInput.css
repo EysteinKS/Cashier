@@ -4,11 +4,17 @@
   padding: 5px;
 }
 
-.grid-item {
+.grid-item-a {
+  grid-column-start: 2;
+  grid-column-end: 3;
   padding: 5px;
   text-align: center;
 }
 
 .num-input {
   text-align: center;
+}
+
+.toggleCashInput {
+  width: 15rem;
 }
