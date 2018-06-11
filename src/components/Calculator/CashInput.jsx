@@ -9,8 +9,8 @@ class CashInput extends Component {
     this.state = {
       value: "",
       result: "0",
-      collapse: false,
-      focus: true
+      collapse: false, //Toggle Collapse
+      focus: true //Toggle Focus
     };
 
     this.toggleCollapse = this.toggleCollapse.bind(this);
@@ -24,26 +24,33 @@ class CashInput extends Component {
   toggleCollapse() {
     this.setState({ collapse: !this.state.collapse });
   }
-
   toggleFocus(){
     this.setState({ focus: !this.state.focus});
   }
 
   focusClick(){
     this.toggleCollapse();
-    this.toggleFocus();
+    this.toggleFocus(); //Toggle state.focus true or false
+
     if (this.state.focus === true ){
       this.textInput.current.focus();
     } else {
       this.textInput.current.blur();
     }
+    //Sets or removes focus from input
   }
 
-  handleChange(event) {
-    this.setState({ value: event.target.value });
-    this.setState((prevState, props) => ({
-      result: prevState.value * props.currency
-    }));
+  handleChange(e) {
+    const re = /^[0-9\b]+$/;
+
+    //Only allow numbers input
+    if (e.target.value === '' || re.test(e.target.value)) {
+      this.setState({ value: e.target.value });
+      this.setState((prevState, props) => ({
+        result: prevState.value * props.currency
+      }));
+    }   
+    //Update value and result on change
   }
 
   onKeyPress(event){
@@ -85,5 +92,3 @@ class CashInput extends Component {
 }
 
 export default CashInput;
-
-//https://reactjs.org/docs/refs-and-the-dom.html
