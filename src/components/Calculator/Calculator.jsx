@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { Button, Collapse, UncontrolledCollapse } from "reactstrap";
 import getTotalAmount from "./CashCounterResult";
+import getTotalTerminal from "./TerminalResult";
 import store from "../store/Store";
 import "./Calculator.css";
 import CashInput from "./CashInput";
+import TerminalCounter from "./TerminalCounter";
 import NumInput from "./NumInput";
 
 class Calculator extends Component {
@@ -78,10 +80,12 @@ class Calculator extends Component {
           color="grey"
           id="terminalcounter"
           style={{ marginBottom: '1rem' }}>
-          <h3>Terminal Counter</h3>
+          <h3>Terminal Counter = {getTotalTerminal()}</h3>
         </Button>
         <UncontrolledCollapse toggler="#terminalcounter">
-          <p>Insert Content Here!</p>
+          <TerminalCounter terminal="Terminal1"/>
+          <TerminalCounter terminal="Terminal2" />
+          <TerminalCounter terminal="Terminal3" />
         </UncontrolledCollapse>
         <br/>
       </div>

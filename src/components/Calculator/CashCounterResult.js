@@ -19,4 +19,5 @@ const getTotalAmount = () =>
     .map(currency => store[currency] * currency)
     .reduce(sumTotal, 0)
 
+
 export default getTotalAmount;

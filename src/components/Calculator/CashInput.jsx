@@ -9,7 +9,6 @@ class CashInput extends Component {
     super(props);
     this.state = {
       value: "",
-      result: "0",
       collapse: false, //Toggle Collapse
       focus: true //Toggle Focus
     };

@@ -13,6 +13,9 @@ const Store = new Listenable({
     1: null,
     totalincome: null,
     registerstart: null,
+    Terminal1: 0,
+    Terminal2: 0,
+    Terminal3: 0,
   }
 });
 
