@@ -1,9 +1,9 @@
-import store from "../store/Store"
+import store from "../store/TerminalStore"
 
 const terminals = [
-  "Terminal1",
-  "Terminal2",
-  "Terminal3",
+  1,
+  2,
+  3,
 ];
 
 const sumTotal = (sum, next) => sum + next;

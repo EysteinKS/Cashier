@@ -3,6 +3,7 @@ import { Button, Collapse, UncontrolledCollapse } from "reactstrap";
 import getTotalAmount from "./CashCounterResult";
 import getTotalTerminal from "./TerminalResult";
 import store from "../store/Store";
+import terminalstore from "../store/TerminalStore";
 import "./Calculator.css";
 import CashInput from "./CashInput";
 import TerminalCounter from "./TerminalCounter";
@@ -15,10 +16,12 @@ class Calculator extends Component {
       collapseCashCounter: false
     }
     store.addListener(this.onChange);
+    terminalstore.addListener(this.onChange);
   };
 
   componentWillUnmount() {
     store.removeListener(this.onChange);
+    terminalstore.removeListener(this.onChange);
   }
 
   onChange = () => {
@@ -83,9 +86,9 @@ class Calculator extends Component {
           <h3>Terminal Counter = {getTotalTerminal()}</h3>
         </Button>
         <UncontrolledCollapse toggler="#terminalcounter">
-          <TerminalCounter terminal="Terminal1"/>
-          <TerminalCounter terminal="Terminal2" />
-          <TerminalCounter terminal="Terminal3" />
+          <TerminalCounter terminal="1"/>
+          <TerminalCounter terminal="2" />
+          <TerminalCounter terminal="3" />
         </UncontrolledCollapse>
         <br/>
       </div>
