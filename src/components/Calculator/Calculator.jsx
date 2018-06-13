@@ -4,6 +4,7 @@ import getTotalAmount from "./CashCounterResult";
 import store from "../store/Store";
 import "./Calculator.css";
 import CashInput from "./CashInput";
+import NumInput from "./NumInput";
 
 class Calculator extends Component {
   constructor(props) {
@@ -13,17 +14,18 @@ class Calculator extends Component {
     }
     store.addListener(this.onChange);
   };
-  
+
   componentWillUnmount() {
     store.removeListener(this.onChange);
   }
+
   onChange = () => {
     this.forceUpdate();
   }
-
   toggleCC = () => {
     this.setState({ collapseCashCounter: !this.state.collapseCashCounter });
   }
+  
 
   render() {
     return (
@@ -35,10 +37,10 @@ class Calculator extends Component {
           color="grey"
           id="totalincome"
           style={{ marginBottom: '1rem' }}>
-          <h3>Total Income</h3>
+          <h3>Total Income = {store["totalincome"]}</h3>
         </Button>
         <UncontrolledCollapse toggler="#totalincome">
-          <p>Insert Content Here!</p>
+          <NumInput numinput="totalincome"/>
         </UncontrolledCollapse>
         <br />
         <Button
@@ -46,10 +48,10 @@ class Calculator extends Component {
           color="grey"
           id="registerstart"
           style={{ marginBottom: '1rem' }}>
-          <h3>Register at Start</h3>
+          <h3>Register at Start = {store["registerstart"]}</h3>
         </Button>        
         <UncontrolledCollapse toggler="#registerstart">
-          <p>Insert Content Here!</p>
+          <NumInput numinput="registerstart" />
         </UncontrolledCollapse>
         <br />
         <Button
