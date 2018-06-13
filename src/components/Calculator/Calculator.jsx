@@ -1,21 +1,29 @@
 import React, { Component } from "react";
 import { Button, Collapse, UncontrolledCollapse } from "reactstrap";
+import getTotalAmount from "./CashCounterResult";
+import store from "../store/Store";
 import "./Calculator.css";
 import CashInput from "./CashInput";
 
 class Calculator extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       collapseCashCounter: false
     }
-
+    store.addListener(this.onChange);
   };
+  
+  componentWillUnmount() {
+    store.removeListener(this.onChange);
+  }
+  onChange = () => {
+    this.forceUpdate();
+  }
 
   toggleCC = () => {
     this.setState({ collapseCashCounter: !this.state.collapseCashCounter });
   }
-
 
   render() {
     return (
@@ -49,7 +57,7 @@ class Calculator extends Component {
           color="grey"
           onClick={this.toggleCC}
           style={{ marginBottom: '1rem' }}>
-          <h3>Cash Counter = Result</h3>
+          <h3>Cash Counter = {getTotalAmount()}</h3>
         </Button>
         <Collapse isOpen={this.state.collapseCashCounter}>
           <CashInput currency="1000"/>

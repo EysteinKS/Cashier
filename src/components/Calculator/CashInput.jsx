@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button } from "reactstrap";
 import { Collapse } from "react-collapse";
+import store from "../store/Store";
 import "./CashInput.css";
 
 class CashInput extends Component {
@@ -41,9 +42,10 @@ class CashInput extends Component {
     //Only allow numbers input
     if (e.target.value === '' || re.test(e.target.value)) {
       this.setState({ value: e.target.value });
-      this.setState((prevState, props) => ({
-        result: prevState.value * props.currency
-      }));
+      const { currency } = this.props;
+      store.set({
+        [currency]: e.target.value
+      });
     }   
     //Update value and result on change
   }
@@ -63,7 +65,7 @@ class CashInput extends Component {
           color="grey" 
           onClick={this.focusClick} 
           style={{ marginBottom: '1rem'}}>
-          {this.props.currency} = {this.state.result}
+          {this.props.currency} = {store[this.props.currency] * this.props.currency}
         </Button>
         <Collapse isOpened={this.state.collapse}>
           <form onKeyPress={this.onKeyPress}>
@@ -72,7 +74,7 @@ class CashInput extends Component {
                 autoFocus
                 className="grid-item-a"
                 type="tel"
-                value={this.state.value}
+                value={store[this.props.currency]}
                 onChange={this.handleChange}
                 maxLength = "3"
                 placeholder="Input Money Here"
