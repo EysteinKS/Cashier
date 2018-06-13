@@ -10,10 +10,9 @@ class Calculator extends Component {
       collapseCashCounter: false
     }
 
-    this.toggleCC = this.toggleCC.bind(this);
   };
 
-  toggleCC() {
+  toggleCC = () => {
     this.setState({ collapseCashCounter: !this.state.collapseCashCounter });
   }
 
