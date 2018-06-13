@@ -23,7 +23,6 @@ class CashInput extends Component {
   toggleFocus = () => {
     this.setState({ focus: !this.state.focus});
   }
-
   focusClick = () => {
     this.toggleCollapse();
     this.toggleFocus(); //Toggle state.focus true or false

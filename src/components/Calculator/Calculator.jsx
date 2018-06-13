@@ -49,18 +49,18 @@ class Calculator extends Component {
           color="grey"
           onClick={this.toggleCC}
           style={{ marginBottom: '1rem' }}>
-          <h3>Cash Counter</h3>
+          <h3>Cash Counter = Result</h3>
         </Button>
         <Collapse isOpen={this.state.collapseCashCounter}>
-          <CashInput currency="1000" />
-          <CashInput currency="500" />
-          <CashInput currency="200" />
-          <CashInput currency="100" />
-          <CashInput currency="50" />
-          <CashInput currency="20" />
-          <CashInput currency="10" />
-          <CashInput currency="5" />
-          <CashInput currency="1" />
+          <CashInput currency="1000"/>
+          <CashInput currency="500"/>
+          <CashInput currency="200"/>
+          <CashInput currency="100"/>
+          <CashInput currency="50"/>
+          <CashInput currency="20"/>
+          <CashInput currency="10"/>
+          <CashInput currency="5"/>
+          <CashInput currency="1"/>
         </Collapse>
         <br/>
         <Button

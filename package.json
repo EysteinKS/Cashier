@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^1.1.0",
     "bootstrap": "^4.1.1",
+    "pockito": "0.1.15",
     "react": "^16.4.0",
     "react-collapse": "4.0.3",
     "react-dom": "^16.4.0",
