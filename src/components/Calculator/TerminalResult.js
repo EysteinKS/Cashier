@@ -10,8 +10,8 @@ const sumTotal = (sum, next) => sum + next;
 
 const getTotalTerminal = () =>
   terminals
-    .map(terminal => store[terminal])
-    .reduce(sumTotal)
+    .map(terminal => store[terminal] * 1)
+    .reduce(sumTotal, 0)
 
 
 export default getTotalTerminal;

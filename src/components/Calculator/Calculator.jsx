@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { Button, Collapse, UncontrolledCollapse } from "reactstrap";
+import "./Calculator.css";
+
 import getTotalAmount from "./CashCounterResult";
 import getTotalTerminal from "./TerminalResult";
+
 import store from "../store/Store";
 import terminalstore from "../store/TerminalStore";
-import "./Calculator.css";
+
 import CashInput from "./CashInput";
 import TerminalCounter from "./TerminalCounter";
 import NumInput from "./NumInput";
@@ -42,10 +45,11 @@ class Calculator extends Component {
           color="grey"
           id="totalincome"
           style={{ marginBottom: '1rem' }}>
-          <h3>Total Income = {store["totalincome"]}</h3>
+          <h3>Total Income = {store["totalincome"] + store["totalincome2"]}</h3>
         </Button>
         <UncontrolledCollapse toggler="#totalincome">
           <NumInput numinput="totalincome"/>
+          <NumInput numinput="totalincome2"/>
         </UncontrolledCollapse>
         <br />
         <Button
@@ -69,6 +73,7 @@ class Calculator extends Component {
         <Collapse isOpen={this.state.collapseCashCounter}>
           <CashInput currency="1000"/>
           <CashInput currency="500"/>
+          <p>{(store[1000]*1000)+(store[500]*500)}</p>
           <CashInput currency="200"/>
           <CashInput currency="100"/>
           <CashInput currency="50"/>
@@ -95,9 +100,5 @@ class Calculator extends Component {
     );
   }
 }
-
-// Terminal (Antall, Inntekt, Tips)
-// Totalt Tjent
-// Kasse Start
 
 export default Calculator;

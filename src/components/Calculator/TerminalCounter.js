@@ -9,7 +9,6 @@ class TerminalCounter extends Component {
     super(props);
     this.state = {
       value: "",
-      result: "0",
       collapse: false, //Toggle Collapse
       focus: true //Toggle Focus
     };
@@ -73,7 +72,7 @@ class TerminalCounter extends Component {
               <input
                 autoFocus
                 className="grid-item-a"
-                type="tel"
+                type="number"
                 value={store[this.props.terminal]}
                 onChange={this.handleChange}
                 maxLength="5"

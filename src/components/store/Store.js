@@ -2,17 +2,18 @@ import { Listenable } from 'pockito';
 
 const Store = new Listenable({
   initialState: {
-    1000: null,
-    500: null,
-    200: null,
-    100: null,
-    50: null,
-    20: null,
-    10: null,
-    5: null,
-    1: null,
-    totalincome: null,
-    registerstart: null,
+    1000: "",
+    500: "",
+    200: "",
+    100: "",
+    50: "",
+    20: "",
+    10: "",
+    5: "",
+    1: "",
+    totalincome: "",
+    totalincome2: "",
+    registerstart: "",
   }
 });
 
