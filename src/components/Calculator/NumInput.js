@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import store from "../store/Store";
+import NumericInput from 'react-numeric-input';
 
 class NumInput extends Component {
   constructor(props){

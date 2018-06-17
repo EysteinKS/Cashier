@@ -45,11 +45,10 @@ class Calculator extends Component {
           color="grey"
           id="totalincome"
           style={{ marginBottom: '1rem' }}>
-          <h3>Total Income = {store["totalincome"] + store["totalincome2"]}</h3>
+          <h3>Total Income = {store["totalincome"]}</h3>
         </Button>
         <UncontrolledCollapse toggler="#totalincome">
           <NumInput numinput="totalincome"/>
-          <NumInput numinput="totalincome2"/>
         </UncontrolledCollapse>
         <br />
         <Button
@@ -73,7 +72,6 @@ class Calculator extends Component {
         <Collapse isOpen={this.state.collapseCashCounter}>
           <CashInput currency="1000"/>
           <CashInput currency="500"/>
-          <p>{(store[1000]*1000)+(store[500]*500)}</p>
           <CashInput currency="200"/>
           <CashInput currency="100"/>
           <CashInput currency="50"/>

@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 //App components
 import Header from "./Header";
+import Footer from "./Footer";
 import Home from "./Home.jsx";
 import Calculator from "./Calculator/Calculator";
 import Result from "./Result";
@@ -17,6 +18,7 @@ class App extends Component {
           <Route className="" path="/" exact component={Home} />
           <Route className="" path="/calculator" component={Calculator} />
           <Route className="" path="/result" component={Result} />
+          <Footer/>
         </div>
       </BrowserRouter>
     );

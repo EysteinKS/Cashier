@@ -12,7 +12,6 @@ const Store = new Listenable({
     5: "",
     1: "",
     totalincome: "",
-    totalincome2: "",
     registerstart: "",
   }
 });
