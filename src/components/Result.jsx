@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-import Button from "reactstrap";
-import Collapse from "react-collapse";
-import store from "./store/Store";
-import getTotalAmount from "./Calculator/CashCounterResult";
+import {Store} from "./store/Store";
+import {getTotalAmount} from "./Calculator/ResultFunctions";
 
 class Result extends Component {
   constructor(props){
     super(props)
-    store.addListener(this.onChange);
+    Store.addListener(this.onChange);
   }
   componentWillUnmount() {
-    store.removeListener(this.onChange);
+    Store.removeListener(this.onChange);
   }
 
   onChange = () => {
@@ -22,9 +20,9 @@ class Result extends Component {
             <div>
                 <h1>Result</h1>
                 <h3>Counter Total</h3>
-                <p>{getTotalAmount() - store["registerstart"]}</p>
+                <p>{getTotalAmount() - Store["registerstart"]}</p>
                 <h3>Difference</h3>
-                <p>{(getTotalAmount() - store["registerstart"]) - store["totalincome"]}</p>
+                <p>{(getTotalAmount() - Store["registerstart"]) - Store["totalincome"]}</p>
                 <li>Comment</li>              
                 <textarea>
                 </textarea>

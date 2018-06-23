@@ -2,15 +2,16 @@ import React, { Component } from "react";
 import { Button, Collapse, UncontrolledCollapse } from "reactstrap";
 import "./Calculator.css";
 
-import getTotalAmount from "./CashCounterResult";
-import getTotalTerminal from "./TerminalResult";
+import { getTotalAmount, getTotalTerminal} from "./ResultFunctions";
 
-import store from "../store/Store";
-import terminalstore from "../store/TerminalStore";
+import { Store, TerminalStore } from "../store/Store";
 
 import CashInput from "./CashInput";
 import TerminalCounter from "./TerminalCounter";
 import NumInput from "./NumInput";
+
+import Footer from "../Footer";
+
 
 class Calculator extends Component {
   constructor(props) {
@@ -18,13 +19,13 @@ class Calculator extends Component {
     this.state = {
       collapseCashCounter: false
     }
-    store.addListener(this.onChange);
-    terminalstore.addListener(this.onChange);
+    Store.addListener(this.onChange);
+    TerminalStore.addListener(this.onChange);
   };
 
   componentWillUnmount() {
-    store.removeListener(this.onChange);
-    terminalstore.removeListener(this.onChange);
+    Store.removeListener(this.onChange);
+    TerminalStore.removeListener(this.onChange);
   }
 
   onChange = () => {
@@ -45,7 +46,7 @@ class Calculator extends Component {
           color="grey"
           id="totalincome"
           style={{ marginBottom: '1rem' }}>
-          <h3>Total Income = {store["totalincome"]}</h3>
+          <h3>Total Income = {Store["totalincome"]}</h3>
         </Button>
         <UncontrolledCollapse toggler="#totalincome">
           <NumInput numinput="totalincome"/>
@@ -56,7 +57,7 @@ class Calculator extends Component {
           color="grey"
           id="registerstart"
           style={{ marginBottom: '1rem' }}>
-          <h3>Register at Start = {store["registerstart"]}</h3>
+          <h3>Register at Start = {Store["registerstart"]}</h3>
         </Button>        
         <UncontrolledCollapse toggler="#registerstart">
           <NumInput numinput="registerstart" />

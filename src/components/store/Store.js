@@ -1,6 +1,6 @@
 import { Listenable } from 'pockito';
 
-const Store = new Listenable({
+export const Store = new Listenable({
   initialState: {
     1000: "",
     500: "",
@@ -16,7 +16,13 @@ const Store = new Listenable({
   }
 });
 
-export default Store;
+export const TerminalStore = new Listenable({
+  initialState: {
+    1: "",
+    2: "",
+    3: "",
+  }
+});
 
 /*
 (I storen)

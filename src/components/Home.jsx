@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import saveStoreAsCookies from "./store/Store";
 import "./Home.css";
 
 class Home extends Component {
@@ -8,6 +9,9 @@ class Home extends Component {
     return (
       <div>
         <h1>Home</h1>
+        <button onClick={saveStoreAsCookies}>
+          Save Cookies
+        </button>
         <br/>
         <h3>Profile Page</h3>
           <li>Employee ID</li>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import store from "../store/Store";
+import { Store } from "../store/Store";
 import NumericInput from 'react-numeric-input';
 
 class NumInput extends Component {
@@ -19,7 +19,7 @@ class NumInput extends Component {
     if (e.target.value === '' || re.test(e.target.value)) {
       this.setState({ value: e.target.value });
       const { numinput } = this.props;
-      store.set({
+      Store.set({
         [numinput]: e.target.value
       });
     }
@@ -40,7 +40,7 @@ class NumInput extends Component {
           autoFocus
           className="grid-item-a"
           type="tel"
-          value={store[this.props.numinput]}
+          value={Store[this.props.numinput]}
           onChange={this.handleChange}
           maxLength="6"
           placeholder="Input Money Here"

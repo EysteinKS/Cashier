@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button } from "reactstrap";
 import { Collapse } from "react-collapse";
-import store from "../store/TerminalStore";
+import { TerminalStore } from "../store/Store";
 import "./CashInput.css";
 
 class TerminalCounter extends Component {
@@ -42,7 +42,7 @@ class TerminalCounter extends Component {
     if (e.target.value === '' || re.test(e.target.value)) {
       this.setState({ value: e.target.value });
       const { terminal } = this.props;
-      store.set({
+      TerminalStore.set({
         [terminal]: e.target.value
       });
     }
@@ -64,7 +64,7 @@ class TerminalCounter extends Component {
           color="grey"
           onClick={this.focusClick}
           style={{ marginBottom: '1rem' }}>
-          {this.props.terminal} = {store[this.props.terminal]}
+          {this.props.terminal} = {TerminalStore[this.props.terminal]}
         </Button>
         <Collapse isOpened={this.state.collapse}>
           <form onKeyPress={this.onKeyPress}>
@@ -73,7 +73,7 @@ class TerminalCounter extends Component {
                 autoFocus
                 className="grid-item-a"
                 type="number"
-                value={store[this.props.terminal]}
+                value={TerminalStore[this.props.terminal]}
                 onChange={this.handleChange}
                 maxLength="5"
                 placeholder="Input Money Here"
