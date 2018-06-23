@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Button, Collapse, UncontrolledCollapse } from "reactstrap";
 import "./Calculator.css";
 
-import { getTotalAmount, getTotalTerminal} from "./ResultFunctions";
+import { getTotalAmount, getTotalTerminal} from "../ResultFunctions";
 
 import { Store, TerminalStore } from "../store/Store";
 

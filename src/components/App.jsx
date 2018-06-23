@@ -7,7 +7,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Home from "./Home.jsx";
 import Calculator from "./Calculator/Calculator";
-import Result from "./Result";
+import Result from "./Result/Result";
 
 class App extends Component {
   render() {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import {Store} from "./store/Store";
-import {getTotalAmount} from "./Calculator/ResultFunctions";
+import { Store } from "../store/Store";
+import { getTotalAmount, getCounterTotal, getDifference } from "../ResultFunctions";
+import ResultContainer from "./ResultContainer"
 
 class Result extends Component {
   constructor(props){
@@ -19,10 +20,11 @@ class Result extends Component {
         return (
             <div>
                 <h1>Result</h1>
+                <ResultContainer />
                 <h3>Counter Total</h3>
-                <p>{getTotalAmount() - Store["registerstart"]}</p>
+                <p>{getCounterTotal()}</p>
                 <h3>Difference</h3>
-                <p>{(getTotalAmount() - Store["registerstart"]) - Store["totalincome"]}</p>
+                <p>{getDifference()}</p>
                 <li>Comment</li>              
                 <textarea>
                 </textarea>
@@ -30,11 +32,6 @@ class Result extends Component {
                 {
                   /*
                   Vis:
-                  Kasse Start
-                  Kontant Total
-                  Terminal Total
-                  Terminal Tips Total
-                  Differanse
                   Ansatt
                   Arbeidsplass
                   Oppgjør registrert klokkeslett

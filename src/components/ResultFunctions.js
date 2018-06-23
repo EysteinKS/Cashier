@@ -1,4 +1,4 @@
-import { TerminalStore, Store } from "../store/Store"
+import { TerminalStore, Store } from "./store/Store"
 
 const sumTotal = (sum, next) => sum + next;
 
@@ -34,3 +34,7 @@ export const getTotalAmount = () =>
     .map(currency => Store[currency] * currency)
     .reduce(sumTotal, 0)
 
+
+export const getCounterTotal = () => getTotalAmount() - Store["registerstart"]
+
+export const getDifference = () => Store["totalincome"] - (getCounterTotal() + getTotalTerminal())
