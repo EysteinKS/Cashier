@@ -10,17 +10,17 @@ class Header extends Component {
           <p className="display-2 minus-bottom">Oppgjør</p>
           <ul className="inline-list">
             <li className="">
-              <NavLink className="" to="/">
+              <NavLink className="link" to="/">
                 Home
               </NavLink>
             </li>
             <li className="">
-              <NavLink className="" to="calculator">
+              <NavLink className="link" to="calculator">
                 Calculator
               </NavLink>
             </li>
             <li className="">
-              <NavLink className="" to="result">
+              <NavLink className="link" to="result">
                 Result
               </NavLink>
             </li>

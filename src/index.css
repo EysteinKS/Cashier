@@ -2,6 +2,8 @@
   box-sizing: border-box;
 }
 
+
+
 *:before, 
 *:after {
   box-sizing: border-box;
@@ -14,6 +16,7 @@ body {
   padding: 0;
   font-family: sans-serif;
   justify-content: center;
+  background-color: "#97CAEF"
 }
 
 #root {
@@ -21,5 +24,6 @@ body {
   overflow: hidden;
   display: block;
   position: relative;
-  padding-bottom: 80px;
+  padding-bottom: 8vh;
+  background-color: "#97CAEF"
 }

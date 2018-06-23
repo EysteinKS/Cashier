@@ -2,9 +2,10 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 100%;
-  background-color: #f1f1f1;
+  background-color: #55BCC9;
   padding: 20px 10px;
   margin-bottom: 20px;
+  height: 25vh;
 }
 
 .logo {
@@ -27,4 +28,16 @@
   display: inline;
   list-style-type: none;
   padding-right: 20px;
+}
+
+.link {
+  color: black;
+}
+
+.link:hover {
+  color: #a5eaff;
+}
+
+.link:active {
+  color: #a5eaff;
 }

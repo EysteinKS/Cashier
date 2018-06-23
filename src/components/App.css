@@ -2,6 +2,7 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  min-height: 92vh;
 }
 
 .App-logo {
@@ -24,18 +25,12 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .center {
-  margin: auto;
   width: 50%;
   border: 3px solid green;
   padding: 10px;
+}
+
+.full-height {
+  height: 100vh;
 }

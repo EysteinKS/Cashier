@@ -8,7 +8,7 @@ class ResultProfile extends Component {
 
   render() {
     return (
-      <div style={{ backgroundColor: "lightblue" }}>
+      <div style={{ padding: "10px" }}>
         <h3>Profile</h3>
         <p>Name + Picture</p>
         <p>Workplace + Register</p>

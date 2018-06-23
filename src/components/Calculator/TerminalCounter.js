@@ -63,7 +63,7 @@ class TerminalCounter extends Component {
           className="toggleCashInput"
           color="grey"
           onClick={this.focusClick}
-          style={{ marginBottom: '1rem' }}>
+          style={{ marginBottom: '1rem', backgroundColor: "#a5eaff" }}>
           {this.props.terminal} = {TerminalStore[this.props.terminal]}
         </Button>
         <Collapse isOpened={this.state.collapse}>

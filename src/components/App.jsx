@@ -13,11 +13,11 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="App">
+        <div className="App" style={{ backgroundColor: "#CAFAFE" }}>
           <Header className="center" />
-          <Route className="" path="/" exact component={Home} />
-          <Route className="" path="/calculator" component={Calculator} />
-          <Route className="" path="/result" component={Result} />
+          <Route className="full-height" path="/" exact component={Home} />
+          <Route className="full-height" path="/calculator" component={Calculator} />
+          <Route className="full-height" path="/result" component={Result} />
           <Footer />
         </div>
       </BrowserRouter>

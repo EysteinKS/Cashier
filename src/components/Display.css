@@ -1,6 +1,6 @@
 .grid-container {
   display: grid;
-  grid-template-columns: 15% 70% 15%;
+  grid-template-columns: 25% 50% 25%;
   padding: 5px;
 }
 
@@ -9,5 +9,4 @@
   grid-column-end: 3;
   padding: 5px;
   text-align: center;
-  background-color: "#97CAEF"
 }

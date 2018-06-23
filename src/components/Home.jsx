@@ -1,32 +1,37 @@
 import React, { Component } from "react";
-import saveStoreAsCookies from "./store/Store";
 import "./Home.css";
+import HomeProfile from "./Home/HomeProfile"
 
 class Home extends Component {
   
 
   render() {
     return (
-      <div>
-        <h1>Home</h1>
-        <button onClick={saveStoreAsCookies}>
-          Save Cookies
-        </button>
+      <div className="grid-container">
+        <h1 className="grid-item-a">Home</h1>
         <br/>
-        <h3>Profile Page</h3>
-          <li>Employee ID</li>
-          <li>Name</li>
-          <li>Profile Picture</li>
-          <li></li>
+        <section className="grid-item-a" style={{ backgroundColor: "#97CAEF" }}>
+            <h3>Profile Page</h3>
+            <li>Employee ID</li>
+            <li>Name</li>
+            <li>Profile Picture</li>
+            <HomeProfile />
+            <li></li>
+          </section>
         <br/>
-        <h3>Workplace</h3>
+        <section className="grid-item-a">
+          <h3>Workplace</h3>
           <li>Current Workplace</li>       
           <li>Currency Selector</li>
           <li>Current Register</li>
+        </section>
         <br/>
+        <section className="grid-item-a">
         <h3>Register Shift</h3>
           <li>Start Shift Button</li>
           <li>End Shift Button</li>
+        </section>
+        
       {
       //Profile Page
       //Workplace

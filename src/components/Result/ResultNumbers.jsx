@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { getTotalAmount, getCounterTotal, getDifference } from "../ResultFunctions";
 
 class ResultNumbers extends Component {
   constructor(props) {
@@ -8,8 +9,10 @@ class ResultNumbers extends Component {
 
   render() {
     return (
-      <div style={{ backgroundColor: "lightblue" }}>
-        <p>Numbers</p>
+      <div style={{ padding: "10px" }}>
+        <h3>Numbers</h3>
+        <p>Counter Total = {getCounterTotal()}</p>
+        <p>Difference = {getDifference()}</p>
       </div>
     )
   }

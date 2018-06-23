@@ -13,12 +13,12 @@ class ResultContainer extends Component {
     return(
       <main>
       <section className="grid-container">
-        <div className="grid-item-a">
+          <div className="grid-item-a" style={{ backgroundColor: "#97CAEF" }}>
         <ResultProfile/>
         </div>
       </section>
       <section className="grid-container">
-        <div className="grid-item-a">
+          <div className="grid-item-a" style={{ backgroundColor: "#97CAEF" }}>
           <ResultNumbers/>
         </div>
       </section>

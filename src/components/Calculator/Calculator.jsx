@@ -10,9 +10,6 @@ import CashInput from "./CashInput";
 import TerminalCounter from "./TerminalCounter";
 import NumInput from "./NumInput";
 
-import Footer from "../Footer";
-
-
 class Calculator extends Component {
   constructor(props) {
     super(props);

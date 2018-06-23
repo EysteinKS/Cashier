@@ -3,6 +3,7 @@ import { Button } from "reactstrap";
 import { Collapse } from "react-collapse";
 import { Store } from "../store/Store";
 import "./CashInput.css";
+import "../Display.css"
 
 class CashInput extends Component {
   constructor(props) {
@@ -61,9 +62,9 @@ class CashInput extends Component {
       <div>
         <Button
           className = "toggleCashInput"
-          color="grey" 
+          color="#97CAEF" 
           onClick={this.focusClick} 
-          style={{ marginBottom: '1rem'}}>
+          style={{ marginBottom: '1rem', backgroundColor: "#a5eaff"}}>
           {this.props.currency} = {Store[this.props.currency] * this.props.currency}
         </Button>
         <Collapse isOpened={this.state.collapse}>
