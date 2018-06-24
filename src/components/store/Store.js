@@ -24,6 +24,14 @@ export const TerminalStore = new Listenable({
   }
 });
 
+export const ProfileStore = new Listenable({
+  initialState: {
+    "name": "",
+    "employeeID": "",
+    "workplace": "",
+  }
+});
+
 /*
 (I storen)
 const Store = new Listenable({

@@ -1,10 +1,10 @@
-.grid-container {
+.grid-container-result {
   display: grid;
   grid-template-columns: 15% 70% 15%;
   padding: 5px;
 }
 
-.grid-item-a {
+.grid-item-a-result {
   grid-column-start: 2;
   grid-column-end: 3;
   padding: 5px;
