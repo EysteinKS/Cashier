@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { getTotalAmount, getCounterTotal, getDifference } from "../ResultFunctions";
+import { getTotalAmount, getCounterTotal, getDifference, getTotalTips, getTotalTerminal } from "../ResultFunctions";
 
 class ResultNumbers extends Component {
   constructor(props) {
@@ -12,6 +12,8 @@ class ResultNumbers extends Component {
       <div style={{ padding: "10px" }}>
         <h3>Numbers</h3>
         <p>Counter Total = {getCounterTotal()}</p>
+        <p>Terminal Total = {getTotalTerminal()}</p>
+        <p>Terminal Tips = {getTotalTips()}</p>
         <p>Difference = {getDifference()}</p>
       </div>
     )

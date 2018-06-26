@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button } from "reactstrap";
 import { Collapse } from "react-collapse";
-import { TerminalStore } from "../store/Store";
+import { TerminalStore, TipsStore } from "../store/Store";
 import "./CashInput.css";
 
 class TerminalCounter extends Component {
@@ -9,6 +9,7 @@ class TerminalCounter extends Component {
     super(props);
     this.state = {
       value: "",
+      tips: "",
       collapse: false, //Toggle Collapse
       focus: true //Toggle Focus
     };
@@ -49,6 +50,18 @@ class TerminalCounter extends Component {
     //Update value and result on change
   }
 
+  handleTips = (e) => {
+    const re = /^[0-9\b]+$/;
+
+    if (e.target.value === '' || re.test(e.target.value)) {
+      this.setState({ tips: e.target.value });
+      const { terminal } = this.props;
+      TipsStore.set({
+        [terminal]: e.target.value
+      });
+    }
+  }
+
   onKeyPress(event) {
     if (event.which === 13) {
       event.preventDefault();
@@ -64,7 +77,7 @@ class TerminalCounter extends Component {
           color="grey"
           onClick={this.focusClick}
           style={{ marginBottom: '1rem', backgroundColor: "#a5eaff" }}>
-          {this.props.terminal} = {TerminalStore[this.props.terminal]}
+          Terminal {this.props.terminal} = {Number(TerminalStore[this.props.terminal])} + {Number(TipsStore[this.props.terminal]) + " in tips"}
         </Button>
         <Collapse isOpened={this.state.collapse}>
           <form onKeyPress={this.onKeyPress}>
@@ -72,12 +85,20 @@ class TerminalCounter extends Component {
               <input
                 autoFocus
                 className="grid-item-a"
-                type="number"
+                type="tel"
                 value={TerminalStore[this.props.terminal]}
                 onChange={this.handleChange}
                 maxLength="5"
                 placeholder="Input Money Here"
                 ref={this.textInput}
+              />
+              <input
+                className="grid-item-a"
+                type="tel"
+                value={TipsStore[this.props.terminal]}
+                onChange={this.handleTips}
+                maxLength="5"
+                placeholder="Input Tips Here"
               />
             </label>
           </form>
