@@ -3,14 +3,13 @@ import TextField from '@material-ui/core/TextField';
 import { ProfileStore } from "../store/Store.js"
 import Button from '@material-ui/core/Button';
 import "./HomeProfile.css";
-import Lock from "@material-ui/icons/Lock"
 
 class HomeProfile extends Component {
   constructor(props){
     super(props)
     this.state = {
       edit: true,
-      buttontext: Lock
+      buttontext: "Edit"
       
     }
     ProfileStore.addListener(this.onChange);

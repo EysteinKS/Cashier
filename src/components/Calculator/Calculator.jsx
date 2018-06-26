@@ -40,10 +40,11 @@ class Calculator extends Component {
         <br/>
         <Button
           className="toggleButton"
-          color="grey"
+          color="grey" 
           id="totalincome"
           style={{ marginBottom: '1rem' }}>
-          <h3>Total Income = {Store["totalincome"]}</h3>
+          <h3>Total Income = {parseInt(Store["totalincome"], 10) || 0}</h3>
+          {/* Turn string to int, but return 0 if value = NaN */}
         </Button>
         <UncontrolledCollapse toggler="#totalincome">
           <NumInput numinput="totalincome"/>
@@ -54,7 +55,7 @@ class Calculator extends Component {
           color="grey"
           id="registerstart"
           style={{ marginBottom: '1rem' }}>
-          <h3>Register at Start = {Store["registerstart"]}</h3>
+          <h3>Register at Start = {Number(Store["registerstart"])}</h3>
         </Button>        
         <UncontrolledCollapse toggler="#registerstart">
           <NumInput numinput="registerstart" />

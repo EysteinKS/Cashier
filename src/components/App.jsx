@@ -31,7 +31,9 @@ Todo:
 Home
 Result
 */
-
-/* Check https://medium.freecodecamp.org/where-do-i-belong-a-guide-to-saving-react-component-data-in-state-store-static-and-this-c49b335e2a00 */
+  
+/*
+ Colors: http://blog.visme.co/website-color-schemes/ #5
+ Check https://medium.freecodecamp.org/where-do-i-belong-a-guide-to-saving-react-component-data-in-state-store-static-and-this-c49b335e2a00 */
 
 export default App;

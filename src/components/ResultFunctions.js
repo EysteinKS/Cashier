@@ -11,7 +11,7 @@ const terminals = [
 
 export const getTotalTerminal = () =>
   terminals
-    .map(terminal => TerminalStore[terminal] * 1)
+    .map(terminal => Number(TerminalStore[terminal]))
     .reduce(sumTotal, 0)
 
 
