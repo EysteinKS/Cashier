@@ -2,20 +2,19 @@ import React, { Component } from "react";
 import { Button, Collapse, UncontrolledCollapse } from "reactstrap";
 import "./Calculator.css";
 
-import { getTotalAmount, getTotalTerminal } from "../ResultFunctions";
+import { getTotalAmount } from "../ResultFunctions";
 
 import { Store, TerminalStore } from "../store/Store";
 
 import CashInput from "./CashInput";
-import TerminalCounter from "./TerminalCounter";
 import NumInput from "./NumInput";
+import TerminalContainer from "./TerminalContainer";
 
 class Calculator extends Component {
   constructor(props) {
     super(props);
     this.state = {
       collapseCashCounter: false,
-      terminalAmount: "1"
     }
     Store.addListener(this.onChange);
     TerminalStore.addListener(this.onChange);
@@ -33,89 +32,58 @@ class Calculator extends Component {
     this.setState({ collapseCashCounter: !this.state.collapseCashCounter });
   }
 
-  handleTerminalAmount = (e) => {
-    const re = /^[0-9\b]+$/;
-
-    if (e.target.value === '' || re.test(e.target.value)) {
-      this.setState({ terminalAmount: e.target.value });
-    }
-  }
-
-  renderTerminals = () => {
-    let terminals = []
-
-    for (let i = 0; i < this.state.terminalAmount; i++) {
-      terminals.push(<TerminalCounter terminal={i + 1} />)
-    }
-
-    return terminals
-  }
-
   render() {
     return (
       <div>
         <h1>Calculator</h1>
-        <br />
-        <Button
-          className="toggleButton"
-          color="grey"
-          id="totalincome"
-          style={{ marginBottom: '1rem' }}>
-          <h3>Total Income = {parseInt(Store["totalincome"], 10) || 0}</h3>
-          {/* Turn string to int, but return 0 if value = NaN */}
-        </Button>
-        <UncontrolledCollapse toggler="#totalincome">
-          <NumInput numinput="totalincome" />
-        </UncontrolledCollapse>
-        <br />
-        <Button
-          className="toggleButton"
-          color="grey"
-          id="registerstart"
-          style={{ marginBottom: '1rem' }}>
-          <h3>Register at Start = {Number(Store["registerstart"])}</h3>
-        </Button>
-        <UncontrolledCollapse toggler="#registerstart">
-          <NumInput numinput="registerstart" />
-        </UncontrolledCollapse>
-        <br />
-        <Button
-          className="toggleButton"
-          color="grey"
-          onClick={this.toggleCC}
-          style={{ marginBottom: '1rem' }}>
-          <h3>Cash Counter = {getTotalAmount()}</h3>
-        </Button>
-        <Collapse isOpen={this.state.collapseCashCounter}>
-          <CashInput currency="1000" />
-          <CashInput currency="500" />
-          <CashInput currency="200" />
-          <CashInput currency="100" />
-          <CashInput currency="50" />
-          <CashInput currency="20" />
-          <CashInput currency="10" />
-          <CashInput currency="5" />
-          <CashInput currency="1" />
-        </Collapse>
-        <br />
-        <Button
-          className="toggleButton"
-          color="grey"
-          id="terminalcounter"
-          style={{ marginBottom: '1rem' }}>
-          <h3>Terminal Counter = {getTotalTerminal()}</h3>
-          <input
-            type="tel"
-            value={this.state.terminalAmount}
-            onChange={this.handleTerminalAmount}
-            maxLength="1"
-            placeholder="How many terminals?"
-          />
-        </Button>
-        <UncontrolledCollapse toggler="#terminalcounter">
-          {this.renderTerminals()}
-        </UncontrolledCollapse>
-        <br />
+        <section>
+          <Button
+            className="toggleButton"
+            color="grey"
+            id="totalincome"
+            style={{ marginBottom: '1rem' }}>
+            <h3>Total Income = {Number(Store["totalincome"])}</h3>
+            {/* Turn string to int, but return 0 if value = NaN */}
+          </Button>
+          <UncontrolledCollapse toggler="#totalincome">
+            <NumInput numinput="totalincome" />
+          </UncontrolledCollapse>
+        </section>
+        <section>
+          <Button
+            className="toggleButton"
+            color="grey"
+            id="registerstart"
+            style={{ marginBottom: '1rem' }}>
+            <h3>Register at Start = {Number(Store["registerstart"])}</h3>
+          </Button>
+          <UncontrolledCollapse toggler="#registerstart">
+            <NumInput numinput="registerstart" />
+          </UncontrolledCollapse>
+        </section>
+        <section>
+          <Button
+            className="toggleButton"
+            color="grey"
+            onClick={this.toggleCC}
+            style={{ marginBottom: '1rem' }}>
+            <h3>Cash Counter = {getTotalAmount()}</h3>
+          </Button>
+          <Collapse isOpen={this.state.collapseCashCounter}>
+            <CashInput currency="1000" />
+            <CashInput currency="500" />
+            <CashInput currency="200" />
+            <CashInput currency="100" />
+            <CashInput currency="50" />
+            <CashInput currency="20" />
+            <CashInput currency="10" />
+            <CashInput currency="5" />
+            <CashInput currency="1" />
+          </Collapse>
+        </section>
+        <section>
+          <TerminalContainer/>
+        </section>
       </div>
     );
   }

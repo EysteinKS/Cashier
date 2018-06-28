@@ -2,3 +2,25 @@
   width: 25rem;
   background-color: #97CAEF
 }
+
+.test {
+  background-color: white;
+}
+
+.button-grid-container {
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  padding: 5px;
+}
+
+.button-grid-a {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  padding: 5px;
+}
+
+.button-grid-b {
+  grid-column-start: 3;
+  grid-column-end: 3;
+  padding: 5px;
+}

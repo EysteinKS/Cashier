@@ -48,4 +48,4 @@ export const getTotalAmount = () =>
 
 export const getCounterTotal = () => getTotalAmount() - Store["registerstart"]
 
-export const getDifference = () => Store["totalincome"] - (getCounterTotal() + getTotalTerminal())
+export const getDifference = () => (getCounterTotal() + getTotalTerminal()) - Store["totalincome"]

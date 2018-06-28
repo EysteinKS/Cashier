@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Button } from "reactstrap";
 import { Collapse } from "react-collapse";
 import { TerminalStore, TipsStore } from "../store/Store";
+
 import "./CashInput.css";
 
 class TerminalCounter extends Component {
