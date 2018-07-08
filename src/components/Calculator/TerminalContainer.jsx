@@ -29,7 +29,7 @@ class TerminalContainer extends Component {
     let terminals = []
 
     for (let i = 0; i < this.state.terminalAmount; i++) {
-      terminals.push(<TerminalCounter terminal={i + 1} />)
+      terminals.push(<TerminalCounter key={i} terminal={i + 1} />)
     }
 
     return terminals

@@ -12,7 +12,8 @@ class TerminalCounter extends Component {
       value: "",
       tips: "",
       collapse: false, //Toggle Collapse
-      focus: true //Toggle Focus
+      focus: true, //Toggle Focus
+      showTips: true,
     };
 
     this.terminal = "";
@@ -70,6 +71,21 @@ class TerminalCounter extends Component {
     //Prevent action on enter
   }
 
+  renderTips = () => {
+    if (this.state.showTips === true){
+      return(
+        <input
+          className="grid-item-a"
+          type="tel"
+          value={TipsStore[this.props.terminal]}
+          onChange={this.handleTips}
+          maxLength="5"
+          placeholder="Input Tips Here"
+        />
+      )      
+    }
+  }
+
   render() {
     return (
       <div>
@@ -93,14 +109,7 @@ class TerminalCounter extends Component {
                 placeholder="Input Money Here"
                 ref={this.textInput}
               />
-              <input
-                className="grid-item-a"
-                type="tel"
-                value={TipsStore[this.props.terminal]}
-                onChange={this.handleTips}
-                maxLength="5"
-                placeholder="Input Tips Here"
-              />
+              {this.renderTips()}
             </label>
           </form>
         </Collapse>
