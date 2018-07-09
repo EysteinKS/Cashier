@@ -54,7 +54,6 @@ class CashInput extends Component {
     if (event.which === 13){
       event.preventDefault();
     }
-    //Prevent action on enter
   }
 
   render() {

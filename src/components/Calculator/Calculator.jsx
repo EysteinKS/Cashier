@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import { Button, Collapse, UncontrolledCollapse } from "reactstrap";
 import "./Calculator.css";
+
 import { getTotalAmount } from "../ResultFunctions";
+
 import { Store, TerminalStore } from "../store/Store";
+
 import CashInput from "./CashInput";
 import NumInput from "./NumInput";
 import TerminalContainer from "./TerminalContainer";
