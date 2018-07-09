@@ -2,13 +2,16 @@ import React from "react"
 import { withRouter } from "react-router-dom"
 
 import { SignUpLink } from "./SignUp";
+import { PasswordForgetLink } from "./PasswordForget"
 import { auth } from "./Firebase/"
 import * as routes from "../constants/routes"
+import TextField from '@material-ui/core/TextField';
 
 const SignInPage = ({history}) =>
   <div>
     <h1>Sign In</h1>
     <SignInForm history={history} />
+    <PasswordForgetLink />
     <SignUpLink/>
   </div>
 
@@ -66,16 +69,30 @@ class SignInForm extends React.Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <input
+          <TextField
+          id="name"
+          label="Email"
+          type="text"
           value={email}
           onChange={event => this.setState(byPropKey("email", event.target.value))}
-          type="text"
-          placeholder="Email Address" />
-        <input 
+          margin="normal"
+          disabled={this.state.edit}
+          autoComplete="off"
+          className="profile-grid-b"
+        />
+        <br/>
+        <TextField
+          id="password"
+          label="Password"
+          type="password"
           value={password}
           onChange={event => this.setState(byPropKey("password", event.target.value))}
-          type="password"
-          placeholder="Password" />
+          margin="normal"
+          disabled={this.state.edit}
+          autoComplete="off"
+          className="profile-grid-b"
+        />
+        <br/>
         <button disabled={isInvalid} type="submit">
           Sign In
         </button>

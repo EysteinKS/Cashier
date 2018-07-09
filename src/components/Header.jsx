@@ -1,7 +1,6 @@
-import React, { Component } from "react";
-import { NavLink, Link } from "react-router-dom";
+import React from "react";
+import {  Link } from "react-router-dom";
 import "./Header.css";
-import Navigation from './Navigation';
 import { firebase } from "./Firebase/"
 import * as routes from '../constants/routes';
 import AuthUserContext from "./AuthUserContext";

@@ -9,8 +9,17 @@ import { Store, TerminalStore } from "../store/Store";
 import CashInput from "./CashInput";
 import NumInput from "./NumInput";
 import TerminalContainer from "./TerminalContainer";
+import AuthUserContext from "../AuthUserContext";
+import withAuthorization from "../withAuthorization"
 
-class Calculator extends Component {
+const Calculator = () =>
+  <AuthUserContext.Consumer>
+    {authUser => 
+      <CalculatorPage/>
+    }
+  </AuthUserContext.Consumer>
+
+class CalculatorPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -89,4 +98,6 @@ class Calculator extends Component {
   }
 }
 
-export default Calculator;
+const authCondition = (authUser) => !!authUser;
+
+export default withAuthorization(authCondition)(Calculator)

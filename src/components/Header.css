@@ -44,12 +44,15 @@
 
 .title {
   color: black;
+  text-decoration: none;
 }
 
 .title:hover {
   color: white;
+  text-decoration: none;
 }
 
 .title:active {
   color: black;
+  text-decoration: none;
 }

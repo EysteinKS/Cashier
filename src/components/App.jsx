@@ -13,8 +13,8 @@ import Result from "./Result/Result";
 import Landing from './Server/Landing';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
-import PasswordForget from './Server/PasswordForget';
-import Account from './Server/Account';
+import PasswordForget from './PasswordForget';
+import Account from './Account';
 import withAuthentication from "./withAuthentication";
 
 const App = () =>

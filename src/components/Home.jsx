@@ -1,43 +1,50 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Home.css";
 import "./Display.css";
 import HomeProfile from "./Home/HomeProfile"
+import SignInForm from "./SignIn"
 
-class Home extends Component {
-  
+import AuthUserContext from "./AuthUserContext";
 
-  render() {
-    return (
-      <div className="grid-container">
-        <h1 className="grid-item-a">Home</h1>
-        <br/>
-        <section className="grid-item-a" style={{ backgroundColor: "#97CAEF" }}>
-            <h3>Profile Page</h3>
-            <HomeProfile />
-            <li></li>
-          </section>
-        <br/>
-        <section className="grid-item-a" style={{ backgroundColor: "#97CAEF" }}>
-          <h3>Workplace</h3>
-          <li>Current Workplace</li>       
-          <li>Currency Selector</li>
-          <li>Current Register</li>
-        </section>
-        <br/>
-        <section className="grid-item-a" style={{ backgroundColor: "#97CAEF" }}>
-        <h3>Register Shift</h3>
-          <li>Start Shift Button</li>
-          <li>End Shift Button</li>
-        </section>
-        
-      {
-      //Profile Page
-      //Workplace
-      //Start & End of shift
+const HomePage = () =>
+  <div>
+    <AuthUserContext.Consumer>
+      { authUser => authUser
+        ? <AuthHome />
+        : <UnAuthHome />
       }
-      </div>
-    );
-  }
-}
+      </AuthUserContext.Consumer>
+  </div>
 
-export default Home;
+const AuthHome = () =>
+  <div className="grid-container">
+  <h1 className="grid-item-a">Home</h1>
+  <br/>
+  <section className="grid-item-a" style={{ backgroundColor: "#97CAEF" }}>
+    <h3>Welcome to Oppgjør</h3>
+    <ul>
+      <li>Making your cashier balancing easier</li>
+      <li>Collect your results, add collaborators and share with your workplace</li>
+    </ul>
+  <img src="https://thumbs.dreamstime.com/b/close-up-hand-counting-money-calculator-business-finance-tax-people-concept-woman-us-dollar-60854942.jpg"
+    alt="$"/>
+  </section>
+  </div>
+
+const UnAuthHome = () =>
+  <div className="grid-container">
+  <h1 className="grid-item-a">Home</h1>
+  <br/>
+  <section className="grid-item-a" style={{ backgroundColor: "#97CAEF" }}>
+    <h3>Welcome to Oppgjør</h3>
+    <ul>
+      <li>Making your cashier balancing easier</li>
+      <li>Collect your results, add collaborators and share with your workplace</li>
+    </ul>
+  <img src="https://thumbs.dreamstime.com/b/close-up-hand-counting-money-calculator-business-finance-tax-people-concept-woman-us-dollar-60854942.jpg"
+    alt="$"/>
+  <SignInForm/>
+  </section>
+  </div>   
+
+export default HomePage;
