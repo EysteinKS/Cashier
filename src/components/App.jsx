@@ -12,7 +12,7 @@ import Calculator from "./Calculator/Calculator";
 import Result from "./Result/Result";
 import Landing from './Server/Landing';
 import SignUp from './SignUp';
-import SignIn from './Server/SignIn';
+import SignIn from './SignIn';
 import PasswordForget from './Server/PasswordForget';
 import Account from './Server/Account';
 
