@@ -41,3 +41,15 @@
 .link:active {
   color: #a5eaff;
 }
+
+.title {
+  color: black;
+}
+
+.title:hover {
+  color: white;
+}
+
+.title:active {
+  color: black;
+}

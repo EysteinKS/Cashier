@@ -1,36 +1,36 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./Header.css";
 import Navigation from './Navigation';
+import { firebase } from "./Firebase/"
+import * as routes from '../constants/routes';
+import AuthUserContext from "./AuthUserContext";
+import SignOutButton from "./SignOut";
 
-class Header extends Component {
-  render() {
-    return (
-      <div className="">
-        <div className="header">
-          <p className="display-2 minus-bottom">Oppgjør</p>
-          <ul className="inline-list">
-            <li className="">
-              <NavLink className="link" to="/">
-                Home
-              </NavLink>
-            </li>
-            <li className="">
-              <NavLink className="link" to="calculator">
-                Calculator
-              </NavLink>
-            </li>
-            <li className="">
-              <NavLink className="link" to="result">
-                Result
-              </NavLink>
-            </li>
-          </ul>
-          <Navigation/>
-        </div>
-      </div>
-    );
-  }
-}
+const Header = () =>
+  <div className="">
+    <div className="header">
+      <Link to={routes.HOME}><p className="display-2 minus-bottom title">Oppgjør</p></Link>
+      <AuthUserContext.Consumer>
+      { authUser => authUser
+        ? <NavigationAuth />
+        : <NavigationNonAuth />
+      }
+      </AuthUserContext.Consumer>
+    </div>
+  </div>
+
+const NavigationAuth = () =>
+    <ul className="inline-list">
+        <li><Link className="link" to={routes.ACCOUNT}>Account</Link></li>
+        <li><Link className="link" to={routes.CALCULATOR}>Calculator</Link></li>
+        <li><Link className="link" to={routes.RESULT}>Result</Link></li>            
+        <li><SignOutButton /></li>
+    </ul>
+
+const NavigationNonAuth = () =>
+    <ul className="inline-list">
+        <li><Link className="link" to={routes.SIGN_IN}>Sign In</Link></li>
+    </ul>
 
 export default Header;

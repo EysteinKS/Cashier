@@ -2,7 +2,7 @@ import React from "react"
 import { withRouter } from "react-router-dom"
 
 import { SignUpLink } from "./SignUp";
-import { auth } from "./Firebase/firebase"
+import { auth } from "./Firebase/"
 import * as routes from "../constants/routes"
 
 const SignInPage = ({history}) =>
@@ -43,9 +43,11 @@ class SignInForm extends React.Component {
       .then(() => {
         this.setState(() => ({ ...INITIAL_STATE }));
         history.push(routes.HOME);
+        console.log("User Signed In")
       })
       .catch(error => {
         this.setState(byPropKey("error", error));
+        console.log("Sign In Failed")
       });
 
     event.preventDefault();
