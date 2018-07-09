@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import "./Display.css";
 import { BrowserRouter, Route } from "react-router-dom";
+import * as routes from '../constants/routes';
 
 //App components
 import Header from "./Header";
@@ -9,11 +10,11 @@ import Footer from "./Footer";
 import Home from "./Home.jsx";
 import Calculator from "./Calculator/Calculator";
 import Result from "./Result/Result";
-import Landing from './Landing';
+import Landing from './Server/Landing';
 import SignUp from './SignUp';
-import SignIn from './SignIn';
-import PasswordForget from './PasswordForget';
-import Account from './Account';
+import SignIn from './Server/SignIn';
+import PasswordForget from './Server/PasswordForget';
+import Account from './Server/Account';
 
 
 class App extends Component {
