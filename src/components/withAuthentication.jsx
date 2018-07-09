@@ -32,6 +32,9 @@ const withAuthentication = (Component) => {
             );
         }
     }
+
+    return WithAuthentication;
+
 }
 
 export default withAuthentication;
