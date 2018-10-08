@@ -1,11 +1,34 @@
 import React, { Component } from "react"
 import { getTotalAmount, getCounterTotal, getDifference, getTotalTips, getTotalTerminal } from "../ResultFunctions";
+import { auth, firestore } from "../Firebase/"
+
+const addZero = time => {
+  if (time < 10) {
+    time = "0" + time
+    return time
+  } else {
+    return time
+  }
+}
 
 class ResultNumbers extends Component {
   constructor(props) {
     super(props)
     this.state = { result: "" }
   }
+
+
+  _save = (event) => { 
+    let date = new Date()
+    let day = addZero(date.getDate())
+    let month = addZero(date.getMonth())
+    let year = date.getFullYear()
+    let time = day.toString() + month.toString() + year.toString()
+    firestore.saveResult(auth.getUser(), time, getCounterTotal(), getTotalTips(), getTotalTerminal(), getDifference());
+  }
+
+  _test = () =>
+    console.log(auth.getUserName())
 
   render() {
     return (
@@ -15,6 +38,8 @@ class ResultNumbers extends Component {
         <p>Terminal Total = {getTotalTerminal()}</p>
         <p>Terminal Tips = {getTotalTips()}</p>
         <p>Difference = {getDifference()}</p>
+        <button onClick={this._save}>Save</button>
+        <button onClick={this._test}>Test</button>
       </div>
     )
   }

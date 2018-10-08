@@ -3,6 +3,7 @@ import "./App.css";
 import "./Display.css";
 import { BrowserRouter, Route } from "react-router-dom";
 import * as routes from '../constants/routes';
+import { auth } from "./Firebase"
 
 //App components
 import Header from "./Header";
@@ -17,21 +18,28 @@ import PasswordForget from './PasswordForget';
 import Account from './Account';
 import withAuthentication from "./withAuthentication";
 
-const App = () =>
-  <BrowserRouter>
-    <div className="App" style={{ backgroundColor: "#CAFAFE" }}>
-      <Header className="center" />
-      <Route className="full-height" path="/" exact component={Home} />
-      <Route className="full-height" path="/calculator" component={Calculator} />
-      <Route className="full-height" path="/result" component={Result} />
-      <Route className="full-height" exact path={routes.LANDING} component={() => <Landing />} />
-      <Route className="full-height" exact path={routes.SIGN_UP} component={() => <SignUp />} />
-      <Route className="full-height" exact path={routes.SIGN_IN} component={() => <SignIn />} />
-      <Route className="full-height" exact path={routes.PASSWORD_FORGET} component={() => <PasswordForget />} />
-      <Route className="full-height" exact path={routes.ACCOUNT} component={() => <Account />} />
-      <Footer />
-    </div>
-  </BrowserRouter>
+class App extends Component {
+
+  render(){
+    return(
+      <BrowserRouter>
+        <div className="App" style={{ backgroundColor: "#CAFAFE" }}>
+          <Header className="center" />
+          <Route className="full-height" path="/" exact component={Home} />
+          <Route className="full-height" path="/calculator" component={Calculator} />
+          <Route className="full-height" path="/result" component={Result} />
+          <Route className="full-height" exact path={routes.LANDING} component={() => <Landing />} />
+          <Route className="full-height" exact path={routes.SIGN_UP} component={() => <SignUp />} />
+          <Route className="full-height" exact path={routes.SIGN_IN} component={() => <SignIn />} />
+          <Route className="full-height" exact path={routes.PASSWORD_FORGET} component={() => <PasswordForget />} />
+          <Route className="full-height" exact path={routes.ACCOUNT} component={() => <Account />} />
+          <Footer />
+        </div>
+      </BrowserRouter>
+    )
+  }  
+}
+
 
 
 /*

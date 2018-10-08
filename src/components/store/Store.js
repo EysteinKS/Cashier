@@ -13,6 +13,7 @@ export const Store = new Listenable({
     1: "",
     totalincome: "",
     registerstart: "",
+    username: "",
   }
 });
 
